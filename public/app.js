@@ -18,7 +18,7 @@ window.onload = function () {
 
         const method = document.createElement("div")
         method.classList.add("entry-method")
-        method.innerHTML = "/bla"
+        method.innerHTML = "/"
 
         const head = document.createElement("div")
         head.classList.add("entry-head")
