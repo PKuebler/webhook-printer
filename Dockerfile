@@ -9,4 +9,5 @@ RUN CGO_ENABLED=0 go build -o /go/bin/webhook-printer
 # Now copy it into our base image.
 FROM gcr.io/distroless/base
 COPY --from=build /go/bin/webhook-printer /
+ADD public /public 
 CMD ["/webhook-printer"]
