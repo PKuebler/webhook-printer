@@ -3,7 +3,14 @@ function NewClient() {
     const listener = {}
 
     function connect(host) {
-        conn = new WebSocket("ws://" + host + "/ws");
+        const fullUrl = document.location.href
+        let url = "://" + host + "/ws";
+        if (fullUrl.slice(0, 5) === 'https') {
+            url = 'wss' + url;
+        } else {
+            url = 'ws' + url;
+        }
+        conn = new WebSocket(url);
 
         conn.onclose = function (evt) {
             trigger({
